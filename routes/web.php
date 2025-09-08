@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Inventory routes
     Route::resource('inventory', InventoryController::class);
+    
 
     // ✅ Inventory export route
     Route::get('inventory/export', [InventoryController::class, 'export'])->name('inventory.export');
@@ -46,8 +47,8 @@ Route::middleware(['auth'])->group(function () {
         $telegram = new \App\Helpers\Telegram();
         return $telegram->sendMessage("✅ Test message from ChoronaiStore Laravel app!");
     });
+    
 
     // Send daily report to Telegram
-Route::get('sales/report/daily/send', [SaleController::class, 'sendDailyReportTelegram'])->name('sales.report.daily.send');
-
+    Route::get('sales/report/daily/send', [SaleController::class, 'sendDailyReportTelegram'])->name('sales.report.daily.send');
 });
